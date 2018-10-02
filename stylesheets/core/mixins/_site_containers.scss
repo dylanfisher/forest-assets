@@ -11,14 +11,14 @@
 
 @mixin site-padding-left {
   @include breakpoint(sm) {
-    padding-left: $size-padding-sm;
+    padding-left: $site-padding-sm;
   }
 }
 .site-padding-left { @include site-padding-left; }
 
 @mixin site-padding-right {
   @include breakpoint(sm) {
-    padding-right: $size-padding-sm;
+    padding-right: $site-padding-sm;
   }
 }
 .site-padding-right { @include site-padding-right; }
