@@ -10,4 +10,5 @@ rm forest-assets/.gitignore
 rm forest-assets/README.md
 mv forest-assets/* ./
 rmdir forest-assets
+cd ../../
 ```
