@@ -6,9 +6,11 @@
 // Vendor
 @import "vendor/**/*";
 
+// Bootstrap 4 Grid
+@import "bootstrap_v4/bootstrap-grid";
+
 // Base - basic foundation and structural styles
 @import "base/normalize";
-@import "base/bootstrap_custom";
 @import "base/typography";
 @import "base/foundation";
 @import "base/helper_classes";
