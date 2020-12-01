@@ -6,6 +6,7 @@
 // }
 
 @mixin breakpoint($class) {
+  // Horizontal breakpoints
   @if $class == xs {
     @media (max-width: $screen-sm - 1) { @content; }
   }
@@ -31,7 +32,20 @@
     @media (min-height: $vert-screen-sm) { @content; }
   }
 
+  // Orientation breakpoints
+  @else if $class == landscape {
+    @media (orientation: landscape) {
+      @content;
+    }
+  }
+
+  @else if $class == portrait {
+    @media (orientation: portrait) {
+      @content;
+    }
+  }
+
   @else {
-    @warn "Breakpoint mixin supports: xs, sm, md, lg, xl";
+    @warn "Breakpoint mixin does not support this size";
   }
 }

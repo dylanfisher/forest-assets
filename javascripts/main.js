@@ -7,26 +7,39 @@ window.App = window.App || {};
 App.pageLoad = [];
 App.pageResize = [];
 App.pageScroll = [];
+// App.pageThrottledScroll = [];
+// App.pageDebouncedResize = [];
 App.teardown = [];
 App.runFunctions = function(array) {
   for (var i = array.length - 1; i >= 0; i--) {
     array[i]();
   }
 };
+App.isHomePage = function() {
+  return App.$body.hasClass('controller--home_pages');
+};
 
 //////////////////////////////////////////////////////////////
 // On page load
 //////////////////////////////////////////////////////////////
 
-$(document).on('turbolinks:load', function(e) {
+$(function() {
   App.scrollTop = $(window).scrollTop();
 
   App.windowWidth  = $(window).width();
   App.windowHeight = $(window).height();
 
+  App.$html = $('html');
+  App.$body = $('body');
+  App.$header = $('#header');
+
+  App.$html.removeClass('no-js');
+
   App.runFunctions(App.pageLoad);
   App.runFunctions(App.pageResize);
+  // App.runFunctions(App.pageDebouncedResize);
   App.runFunctions(App.pageScroll);
+  // App.runFunctions(App.pageThrottledScroll);
 });
 
 //////////////////////////////////////////////////////////////
@@ -39,6 +52,10 @@ $(window).on('scroll', function() {
   App.runFunctions(App.pageScroll);
 });
 
+// $(window).on('scroll', $.throttle(200, function() {
+//   App.runFunctions(App.pageThrottledScroll);
+// }));
+
 //////////////////////////////////////////////////////////////
 // On resize
 //////////////////////////////////////////////////////////////
@@ -50,13 +67,9 @@ $(window).on('resize', function() {
   App.runFunctions(App.pageResize);
 });
 
-//////////////////////////////////////////////////////////////
-// On turbolinks:before-cache
-//////////////////////////////////////////////////////////////
-
-$(document).on('turbolinks:before-cache', function() {
-  App.runFunctions(App.teardown);
-});
+// $(window).on('resize', $.debounce(500, function() {
+//   App.runFunctions(App.pageDebouncedResize);
+// }));
 
 App.breakpoint = function(checkIfSize) {
   // Make sure these match the breakpoint variables set in variables.scss
