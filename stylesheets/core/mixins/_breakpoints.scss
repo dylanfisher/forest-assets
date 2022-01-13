@@ -11,6 +11,10 @@
     @media (max-width: $screen-sm - 1) { @content; }
   }
 
+  @else if $class == xs-sm {
+    @media (max-width: $screen-md - 1) { @content; }
+  }
+
   @else if $class == sm {
     @media (min-width: $screen-sm) { @content; }
   }
@@ -28,7 +32,7 @@
   }
 
   // Vertical breakpoints
-  @else if $class == sm-vert {
+  @else if $class == vert-sm {
     @media (min-height: $vert-screen-sm) { @content; }
   }
 

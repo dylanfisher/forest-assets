@@ -13,7 +13,3 @@ $default: sans-serif;
   }
 }
 .body-text { @include body-text; }
-
-@mixin default-font {
-  @include body-text;
-}

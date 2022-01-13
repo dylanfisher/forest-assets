@@ -47,8 +47,13 @@ $gutter: 15px;
 $site-max-width: 1400px;
 $site-padding-md: 30px;
 
+// $page-content-margin: map-get($spacers, 6);
+// $page-content-margin-md: map-get($spacers, 8);
+
 $block-margin: 80px;
 $block-margin-md: 120px;
+
+$paragraph-margin: 1em;
 
 // Breakpoints
 $screen-xs: 0;

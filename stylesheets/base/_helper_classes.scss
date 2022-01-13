@@ -7,6 +7,14 @@
 .text-justify { text-align: justify; }
 .text-nowrap  { white-space: nowrap; }
 
+@include breakpoint(md) {
+  .text-md-left    { text-align: left; }
+  .text-md-right   { text-align: right; }
+  .text-md-center  { text-align: center; }
+  .text-md-justify { text-align: justify; }
+  .text-md-nowrap  { white-space: nowrap; }
+}
+
 // Vertical alignment
 .va-top    { vertical-align: top; }
 .va-middle { vertical-align: middle; }
@@ -18,6 +26,8 @@
 .text-capitalize { text-transform: capitalize; }
 
 .no-margin { margin: 0; }
+.mt-gutter { margin-top: $gutter; }
+.mb-gutter { margin-bottom: $gutter; }
 
 .display-block        { display: block; }
 .display-inline       { display: inline; }
@@ -33,3 +43,6 @@
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
