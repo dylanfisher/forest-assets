@@ -73,16 +73,18 @@ $(window).on('resize', function() {
 
 App.breakpoint = function(checkIfSize) {
   // Make sure these match the breakpoint variables set in variables.scss
-  var xs = 576;
-  var sm = 768;
-  var md = 992;
-  var lg = 1200;
+  var sm = 576;
+  var md = 768;
+  var lg = 1100;
+  var xl = 1400;
   var breakpoint;
 
-  if ( App.windowWidth < sm ) {
+  if ( App.windowWidth < sm) {
     breakpoint = 'xs';
+  } else if ( App.windowWidth >= xl ) {
+    breakpoint = 'xl';
   } else if ( App.windowWidth >= lg ) {
-    breakpoint = 'lg';
+    breakpoint = 'lg'
   } else if ( App.windowWidth >= md ) {
     breakpoint = 'md';
   } else {
@@ -91,13 +93,15 @@ App.breakpoint = function(checkIfSize) {
 
   if ( checkIfSize !== undefined ) {
     if ( checkIfSize == 'xs' ) {
-      return App.windowWidth < xs;
+      return App.windowWidth < sm;
     } else if ( checkIfSize == 'sm' ) {
-      return (App.windowWidth >= xs && App.windowWidth < sm);
-    } else if ( checkIfSize == 'md' ) {
       return (App.windowWidth >= sm && App.windowWidth < md);
+    } else if ( checkIfSize == 'md' ) {
+      return (App.windowWidth >= md && App.windowWidth < lg);
     } else if ( checkIfSize == 'lg' ) {
-      return App.windowWidth >= md;
+      return (App.windowWidth >= lg && App.windowWidth < xl);
+    } else if ( checkIfSize == 'xl' ) {
+      return App.windowWidth >= xl;
     }
   } else {
     return breakpoint;
