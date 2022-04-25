@@ -8,10 +8,10 @@
   @if $direction == up {
     border-width: 0 ($size/2) ($size*$ratio) ($size/2);
     border-color: transparent transparent $color transparent;
-  } @else if $direction == right {
+  } @elseif $direction == right {
     border-width: ($size/2) 0 ($size/2) ($size*$ratio);
     border-color: transparent transparent transparent $color;
-  } @else if $direction == down {
+  } @elseif $direction == down {
     border-width: ($size*$ratio) ($size/2) 0 ($size/2);
     border-color: $color transparent transparent transparent;
   } @else {
