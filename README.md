@@ -7,6 +7,7 @@ git clone git@github.com:dylanfisher/forest-assets.git
 mv forest-assets/package.json ../../
 rm -rf javascripts
 rm -rf stylesheets
+rm -rf config
 rm -rf forest-assets/.git
 rm forest-assets/.gitignore
 rm forest-assets/README.md
