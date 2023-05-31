@@ -6,12 +6,15 @@ cd app/assets
 git clone git@github.com:dylanfisher/forest-assets.git
 mv forest-assets/package.json ../../
 rm -rf javascripts
+rm -rf ../javascript
 rm -rf stylesheets
 rm -rf config
 rm -rf forest-assets/.git
 rm forest-assets/.gitignore
 rm forest-assets/README.md
 mv forest-assets/* ./
+mv javascripts/* ../javascript
+rmdir javascripts
 rmdir forest-assets
 cd ../../
 ```
