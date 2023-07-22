@@ -13,6 +13,7 @@ rm -rf forest-assets/.git
 rm forest-assets/.gitignore
 rm forest-assets/README.md
 mv forest-assets/* ./
+mkdir ../javascript
 mv javascripts/* ../javascript
 rmdir javascripts
 rmdir forest-assets
