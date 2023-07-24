@@ -1,10 +1,14 @@
 // Smooth scroll
 
-import 'jquery.easing';
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 App.pageLoad.push(function() {
   if ( location.hash.length > 1 ) {
     var hash = location.hash.substr(1);
+
     var $el = $('[name="' + hash + '"], #' + hash).first();
 
     if ( $el.attr('data-default-jump-link') != undefined ) return;
@@ -40,7 +44,7 @@ $(document).on('click', 'a[href*="#"]:not([href="#"])', function(e) {
 
 App.scrollTo = function(targetOrPosition, offset, callback) {
   var smoothScrollOffset = (offset || offset == 0) ? offset : 0;
-  var duration = 2000;
+  var duration = 1.5;
   var scrollTop;
 
   if ( isNaN(targetOrPosition) ) {
@@ -54,24 +58,12 @@ App.scrollTo = function(targetOrPosition, offset, callback) {
     scrollTop = targetOrPosition;
   }
 
-  var $page = App.$html.add(App.$body);
-  // var disableListeners = function() {
-  //   $page.off('scroll.scrollTo mousedown.scrollTo wheel.scrollTo DOMMouseScroll.scrollTo mousewheel.scrollTo keyup.scrollTo touchmove.scrollTo');
-  // };
-
-  // $page.on('scroll.scrollTo mousedown.scrollTo wheel.scrollTo DOMMouseScroll.scrollTo mousewheel.scrollTo keyup.scrollTo touchmove.scrollTo', function() {
-  //   $page.stop();
-  //   disableListeners();
-  // });
-
-  $page.animate({
-    scrollTop: scrollTop
-  }, {
+  gsap.to(window, {
     duration: duration,
-    easing: 'easeInOutQuart',
-    complete: function() {
+    scrollTo: scrollTop,
+    ease: 'power4.out',
+    onComplete: function() {
       if ( callback ) callback();
-      // disableListeners();
     }
   });
 };

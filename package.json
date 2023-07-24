@@ -5,7 +5,7 @@
     "@hotwired/turbo-rails": "^7.3",
     "esbuild": "^0.17",
     "jquery": "^3.6",
-    "jquery.easing": "^1.4",
+    "gsap": "^3.11.5",
     "lazysizes": "^5.3",
     "lodash": "^4.17"
   },
