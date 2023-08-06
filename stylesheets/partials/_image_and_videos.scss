@@ -13,17 +13,42 @@ audio {
   width: 100%;
 }
 
-.forest-image-jump-fix {
+.forest-image-jump-fix,
+.forest-asset-jump-fix {
   position: relative;
   height: 0;
   overflow: hidden;
+}
 
+.forest-image-jump-fix,
+.forest-asset-jump-fix {
   img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
   }
+}
+
+.forest-asset-jump-fix {
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.forest-image-jump-fix--image-jpeg,
+.forest-asset-jump-fix {
+  background-color: $lazy-image-background-color;
+}
+
+.forest-asset-jump-fix--cover {
+  padding-bottom: 0 !important;
+  height: 100%;
 }
 
 .lazy-image {
@@ -58,6 +83,14 @@ audio {
   &.lazyloaded {
     background-color: transparent !important;
   }
+}
+
+.forest-asset-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 // .landscape-image {
