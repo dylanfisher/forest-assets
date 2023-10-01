@@ -19,3 +19,7 @@ rmdir javascripts
 rmdir forest-assets
 cd ../../
 ```
+
+Then, edit `config/initializers/assets.rb` and replace the asset paths configuration with the following:
+
+`Rails.application.config.assets.paths << Rails.root.join('node_modules')`
