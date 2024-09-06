@@ -26,4 +26,10 @@ Then, edit `config/initializers/assets.rb` and replace the asset paths configura
 
 Finally, run `yarn` to install packages and make the CSS and JavaScript files available to the asset pipeline. 
 
-⚠️ You might need to delete the contents of `app/assets/builds` are re-run `yarn` or `bin/dev` to properly link the assets.
+⚠️ You might need to update `manifest.js` with the following:
+```
+//= link_tree ../images
+//= link application.css
+//= link application.js
+//= link_tree ../builds
+```
