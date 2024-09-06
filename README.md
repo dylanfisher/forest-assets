@@ -25,3 +25,5 @@ Then, edit `config/initializers/assets.rb` and replace the asset paths configura
 `Rails.application.config.assets.paths << Rails.root.join('node_modules')`
 
 Finally, run `yarn` to install packages and make the CSS and JavaScript files available to the asset pipeline. 
+
+⚠️ You might need to delete the contents of `app/assets/builds` are re-run `yarn` or `bin/dev` to properly link the assets.
